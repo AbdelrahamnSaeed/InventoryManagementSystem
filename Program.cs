@@ -46,7 +46,8 @@ namespace InventoryManagementSystem
                 .AddScoped<IWarehouseServises, WarehouseServises>();
             builder.Services
                 .AddScoped<ITransactionServices, TransactionServices>();
-
+            builder.Services
+                .AddScoped<IAccountServices, AccountServices>();
     /*---------------------------------------------------------------------------------------*/
 
             builder.Services.AddAuthentication()

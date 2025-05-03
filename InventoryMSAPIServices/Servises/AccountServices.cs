@@ -1,6 +1,7 @@
 ﻿using Azure.Core;
 using InventoryManagementSystem.InventoryMSAPIDomain.Entities;
 using InventoryManagementSystem.InventoryMSAPIServices.DTOS.AccountDTO;
+using InventoryManagementSystem.InventoryMSAPIServices.IServises;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace InventoryManagementSystem.InventoryMSAPIServices.Servises
 {
-    public class AccountServices
+    public class AccountServices: IAccountServices
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration configration;

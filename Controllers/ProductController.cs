@@ -1,5 +1,6 @@
 ﻿using InventoryManagementSystem.InventoryMSAPIServices.DTOS.ProductDTO;
 using InventoryManagementSystem.InventoryMSAPIServices.IServises;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,7 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPost]
         [Route("AddProduct")]
+        [Authorize("Admin")]
         public void AddProduct(AddProductDto product)
         {
              servises.AddProduct(product);
@@ -40,6 +42,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPut]
         [Route("UpdateProduct")]
+        [Authorize("Admin")]
+
         public void UpdateProduct(ProductDetailsDto product)
         {
             servises.UpdateProduct(product);
@@ -48,6 +52,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpDelete]
         [Route("DeleteProducts")]
+        [Authorize("Admin")]
+
         public void DeleteProduct(int id)
         {
             servises.DeleteProduct(id);

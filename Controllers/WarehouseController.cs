@@ -1,5 +1,6 @@
 ﻿using InventoryManagementSystem.InventoryMSAPIServices.DTOS.WarehouseDTO;
 using InventoryManagementSystem.InventoryMSAPIServices.IServises;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPost]
         [Route("AddWarehouse")]
+        [Authorize("Admin")]
+
         public void AddWarehouse(AddWareouseDto warehouse)
         {
             servises.AddWareouse(warehouse);
@@ -44,6 +47,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPut]
         [Route("UpdateWarehouse")]
+        [Authorize("Admin")]
+
         public void UpdateWrehouse(WarehouseDetailsDto warehouse)
         {
             servises.UpdateWarehouse(warehouse);
@@ -52,6 +57,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpDelete]
         [Route("DeleteWarehouse")]
+        [Authorize("Admin")]
+
         public void DeleteWarehouse(int id)
         {
             servises.DeleteWarehouse(id);

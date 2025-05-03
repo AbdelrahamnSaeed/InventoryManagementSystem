@@ -1,5 +1,6 @@
 ﻿using InventoryManagementSystem.InventoryMSAPIServices.DTOS.TransactionDTO;
 using InventoryManagementSystem.InventoryMSAPIServices.IServises;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPost]
         [Route("TransactionAdd")]
+        [Authorize("Admin")]
+
         public async Task<bool> TransactionAdd(TransactionAddProductDto transactionDto)
         {
             return await services.TransactionAdd(transactionDto);
@@ -34,6 +37,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpPut]
         [Route("TransactionTransfare")]
+        [Authorize("Admin")]
+
         public Task<bool> TransactionTransfare(TransactionTransfareProduct transactionDto)
         {
             return services.TransactionTransfare(transactionDto);
@@ -42,6 +47,8 @@ namespace InventoryManagementSystem.Controllers
 
         [HttpDelete]
         [Route("TransactionDelete")]
+        [Authorize("Admin")]
+
         public Task<bool> TransactionDelete(TransactionRemoveProductDto transactionDto)
         {
             return services.TransactionDelete(transactionDto);
